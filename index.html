@@ -439,12 +439,9 @@
     <div class="song-box" id="songBox">
       <div style="width:100%; max-width:560px; margin:0 auto;">
         <audio id="songPlayer" preload="auto" controls style="width:100%;">
-          <source src="music.mp3" type="audio/mpeg">
-          Tarayıcın ses oynatmayı desteklemiyor.
+          <source src="https://raw.githubusercontent.com/afalpudy/Senin-i-in/main/music.mp3" type="audio/mpeg">
         </audio>
-        <div id="audioStatus" style="margin-top:8px; font-size:13px; color:#a5798a;">
-          music.mp3 hazırlanıyor...
-        </div>
+        <div id="audioStatus" style="display:none;"></div>
       </div>
       <button id="playSongBtn" onclick="playMP3()" style="margin-top:14px;">▶ Şarkıyı çal</button>
     </div>
@@ -517,7 +514,7 @@
   /* ======= EDIT BAGIAN INI SESUAI KEBUTUHANMU ======= */
   const CONFIG = {
     partnerName: "Sevval",
-    senderName: "Ben",
+    senderName: "afal",
     questions: [
       {
         text: "Gün içinde durup dururken birini düşünüyorsan, genelde sebebi...",
@@ -542,7 +539,7 @@
       Umarım bundan sonra da<br>
       birlikte bol bol güzel anımız olur.<br><br>
       Sevgililer Günü kutlu olsun 💌<br>
-      — Ben`,
+      — afal`,
     letterMessage: `Sevval:<br><br>
       Açıkçası bu hissettiğim şeyi nasıl anlatacağımı pek bilmiyorum.<br>
       Sadece seni tanıdıktan sonra seninle konuşmak,<br>
@@ -553,7 +550,7 @@
       Umarım buraya geldiğinde<br>
       yüzünde küçük bir gülümseme oluşur.<br><br>
       Sevgililer Günü kutlu olsun 💗<br>
-      — Ben`,
+      — afal`,
     youtubeVideoId: ""
   };
   /* ==================================================== */
@@ -599,10 +596,10 @@
       if(promise){
         promise.then(() => {
           if(btn) btn.textContent = '❚❚ Şarkıyı durdur';
-          if(status) status.textContent = 'Şarkı çalıyor 🎵';
+          if(status) status.textContent = '';
         }).catch(() => {
           if(btn) btn.textContent = '▶ Şarkıyı çal';
-          if(status) status.textContent = "Tarayıcı sesi başlatamadı. Tombol ▶ Şarkıyı çal'a tekrar dokun.";
+          if(status) status.textContent = '';
         });
       }
     } else {
@@ -617,11 +614,11 @@
     if(!audio) return;
 
     audio.addEventListener('loadeddata', () => {
-      if(status) status.textContent = 'Şarkı hazır 🎵';
+      if(status) status.textContent = '';
     });
 
     audio.addEventListener('canplaythrough', () => {
-      if(status) status.textContent = 'Şarkı hazır, tekan ▶ untuk memutar 🎵';
+      if(status) status.textContent = '';
     });
 
     audio.addEventListener('error', () => {
