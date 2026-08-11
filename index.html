@@ -438,10 +438,13 @@
     <h2 class="title sparkle" style="font-size:22px;">🎵 Sana bir şarkı</h2>
     <div class="song-box" id="songBox">
       <div style="width:100%; max-width:560px; margin:0 auto;">
-        <audio id="songPlayer" preload="metadata" controls style="width:100%;">
+        <audio id="songPlayer" preload="auto" controls style="width:100%;">
           <source src="./music.mp3" type="audio/mpeg">
           Tarayıcın ses oynatmayı desteklemiyor.
         </audio>
+        <div id="audioStatus" style="margin-top:8px; font-size:13px; color:#a5798a;">
+          music.mp3 hazırlanıyor...
+        </div>
       </div>
       <button id="playSongBtn" onclick="playMP3()" style="margin-top:14px;">▶ Şarkıyı çal</button>
     </div>
@@ -587,7 +590,7 @@
     if(!audio) return;
 
     if(audio.error){
-      if(status) status.textContent = 'Musik tidak ditemukan. Pastikan file bernama music.mp3 ada di repo yang sama.';
+      if(status) status.textContent = 'Musik tidak ditemukan. Pastikan file music.mp3 berada di folder yang sama dengan file HTML.';
       return;
     }
 
@@ -618,7 +621,7 @@
     });
 
     audio.addEventListener('error', () => {
-      if(status) status.textContent = "music.mp3 bulunamadı. GitHub repo'sunda index.html ile aynı klasörde olduğundan emin ol.";
+      if(status) status.textContent = "music.mp3 bulunamadı. music.mp3 dosyasının HTML dosyasıyla aynı klasörde olduğundan emin ol.";
     });
 
     audio.addEventListener('play', () => {
